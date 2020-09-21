@@ -2,6 +2,7 @@
 Official Docker ubuntu image with XFCE and VNC Server
 
 ## Requirements
+Only if you want to use VNC client (other solution is noVNC)
 ```bash
 sudo apt install xtightvncviewer
 ```
@@ -16,9 +17,14 @@ docker build -t xubuntu .
 
 ### Launch and connect
 ```bash
-sudo  container 940b9490a64a
 CID=$(sudo docker run -d xubuntu); CIP=$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CID); vncviewer $CIP:2
 vncviewer <container_ip>:2
+```
+
+### Using noVNC
+```bash
+CID=$(sudo docker run -d xubuntu); CIP=$(sudo docker inspect --format '{{ .NetworkSettings.IPAddress }}' $CID); vncviewer $CIP:2
+echo "http://<container_ip>:6901"
 ```
 
 ### Options

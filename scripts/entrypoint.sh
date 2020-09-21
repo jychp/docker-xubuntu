@@ -16,7 +16,8 @@ expect eof
 exit
 EOF
 # Launch server
-vncserver :2 -geometry $2 &
+vncserver :1 -geometry $2 -depth 24 &
+/opt/novnc/utils/launch.sh --vnc localhost:$VNC_PORT --listen $NO_VNC_PORT &> /home/user/novnc.log &
 while true; do
     sleep 3600
 done
