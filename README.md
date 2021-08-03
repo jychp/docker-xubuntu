@@ -28,7 +28,5 @@ echo "http://<container_ip>:6901"
 ```
 
 ### Options
-```bash
-docker run xubuntu password 1024x768
-vncviewer <container_ip>:2
-```
+
+VNC password and resolution can be passed using environment variables.
