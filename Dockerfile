@@ -9,10 +9,12 @@ RUN chmod 700 build_xfwm4.sh && ./build_xfwm4.sh && rm build_xfwm4.sh
 
 
 FROM ubuntu:latest
-## Connection ports for controlling the UI:
+## VNC parameters
 ENV DISPLAY=:1 \
     VNC_PORT=5901 \
-    NO_VNC_PORT=6901
+    NO_VNC_PORT=6901 \
+    VNC_PASSWORD='password' \
+    VNC_RESOLUTION="1600x1024"
 EXPOSE $VNC_PORT $NO_VNC_PORT
 
 ### Envrionment config
@@ -49,4 +51,3 @@ ENV USER=user \
 USER user
 WORKDIR /home/user
 ENTRYPOINT ["/bin/entrypoint.sh"]
-CMD ["password", "1600x1024"]
